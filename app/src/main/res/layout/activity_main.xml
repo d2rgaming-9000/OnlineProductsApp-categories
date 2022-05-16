@@ -8,17 +8,116 @@
     android:background="@drawable/bg"
     tools:context=".MainActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="62dp"
+        android:layout_height="869dp"
+        android:background="@drawable/bg2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/HuwaiiProducts"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:fontFamily="@font/rubik_medium"
+            android:gravity="center"
+            android:rotation="0"
+            android:text="Huawei"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/OtherProducts"
+            app:layout_constraintEnd_toEndOf="@+id/OtherProducts"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintStart_toStartOf="@+id/OtherProducts" />
+
+        <TextView
+            android:id="@+id/AppleProducts"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:fontFamily="@font/rubik_medium"
+            android:gravity="center"
+            android:rotation="0"
+            android:text="Apple"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/SamsungProducts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.709"
+            app:layout_constraintStart_toStartOf="@+id/SamsungProducts" />
+
+        <TextView
+            android:id="@+id/SamsungProducts"
+            android:layout_width="64dp"
+            android:layout_height="95dp"
+            android:fontFamily="@font/rubik_bold_italic"
+            android:gravity="center"
+            android:rotation="0"
+            android:text="Samsung"
+            android:textColor="#080908"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/HuwaiiProducts"
+            app:layout_constraintEnd_toEndOf="@+id/HuwaiiProducts"
+            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintStart_toStartOf="@+id/HuwaiiProducts" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="#87FB00"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_search" />
+
+        <TextView
+            android:id="@+id/OtherProducts"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="80dp"
+            android:fontFamily="@font/rubik_medium"
+            android:gravity="center"
+            android:rotation="0"
+            android:text="Other"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/imageView2" />
+
+        <Button
+            android:id="@+id/MainBtn"
+            android:layout_width="59dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="112dp"
+            android:background="@drawable/cart_button_bg"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <TextView
         android:id="@+id/nameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_width="307dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/rubik"
         android:text="Let's find your luxurious smart watch of choice !"
         android:textColor="#B3D8E5"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintHorizontal_bias="0.846"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,13 +125,13 @@
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/rubik"
         android:text="username"
         android:textColor="#B3D8E5"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.621"
+        app:layout_constraintHorizontal_bias="0.299"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,24 +139,23 @@
         android:id="@+id/imageView3"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile" />
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="426dp"
-        android:layout_height="568dp"
+        android:layout_width="348dp"
+        android:layout_height="636dp"
         android:paddingTop="?attr/actionBarSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637" />
+        app:layout_constraintVertical_bias="0.557" />
 
     <ImageView
         android:id="@+id/empty_imageview"
@@ -106,30 +204,18 @@
 
     <Button
         android:id="@+id/infoBtn"
-        android:layout_width="121dp"
-        android:layout_height="40dp"
+        android:layout_width="129dp"
+        android:layout_height="36dp"
         android:backgroundTint="#B3D8E5"
         android:text="Contact us!"
         android:textAlignment="center"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/nameTextView"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.072" />
-
-    <Button
-        android:id="@+id/MainBtn"
-        android:layout_width="82dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="124dp"
-        android:background="@drawable/cart_button_bg"
-        android:text="Logout"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintVertical_bias="0.061" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
