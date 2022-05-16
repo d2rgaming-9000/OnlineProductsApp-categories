@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.rajendra.onlineproductsapp.adapter.CustomAdapter;
@@ -123,19 +124,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //clicks on view cart
-        try {
-            Button button3 = (Button) findViewById(R.id.CartBtn);
-            button3.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    putToCart = new Intent(MainActivity.this, checkout.class);
-                    putToCart.putExtra("items", itemcnt);
-                    startActivity(putToCart);
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
+        if ((itemcnt != null)) {
+            try {
+                Button button3 = (Button) findViewById(R.id.CartBtn);
+                button3.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        putToCart = new Intent(MainActivity.this, checkout.class);
+                        putToCart.putExtra("items", itemcnt);
+                        startActivity(putToCart);
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-
+        else
+        {
+            Toast.makeText(this, "Your cart is empty.", Toast.LENGTH_SHORT).show();
+        }
 
     //abdullahs code starting (added line from abduv)
 //text view to go to apple product activity

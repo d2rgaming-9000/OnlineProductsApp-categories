@@ -1,6 +1,10 @@
 package com.rajendra.onlineproductsapp;
 
+import static com.rajendra.onlineproductsapp.DBHelper.TABLE_NAME1;
+
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +20,7 @@ import java.util.Arrays;
 public class checkout extends AppCompatActivity{
 
 
+    SQLiteDatabase db;
     Integer qty, Cart = 0;
     String specifier, count, stringCnt;
     DBHelper myDB = new DBHelper(checkout.this);
@@ -23,6 +28,7 @@ public class checkout extends AppCompatActivity{
     RecyclerView ItemRecycler;
     TextView items, item_specifier, btnPurchase;
     int[] CartArry = new int[]{0};
+
 
     @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +55,24 @@ public class checkout extends AppCompatActivity{
 
         btnPurchase = findViewById(R.id.placeYourOrder);
 
+        //query the specifier and the quantity of the item specified from the DB
+        db = this.myDB.getReadableDatabase();
+
         //when click purchase
         btnPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //updates remainder of qauntity in DB of item
                 try {
+                    //specifier = "JPN#34536";
                     specifier = "JPN#34536";
+                    String selectQuery = "SELECT product_specifier, prod_qty WHERE product_specifier = " + specifier + ", FROM " + TABLE_NAME1 ;
+                    Cursor cursor = db.rawQuery(selectQuery, null);
+
                     qty = qty;
                     qty = qty - Cart;
                     Boolean checkPurch = myDB.updatePurch(specifier, qty);
-
+                    
                     if(checkPurch == true)
                     {
                         Toast.makeText(checkout.this, "Successfully purchased!", Toast.LENGTH_SHORT).show();
