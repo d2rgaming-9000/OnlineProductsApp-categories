@@ -84,8 +84,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 intent.putExtra("specifier", String.valueOf(product_specifier.get(position)));
                 intent.putExtra("range", String.valueOf(product_range.get(position)));
                 intent.putExtra("prod_qty", String.valueOf(prod_qty.get(position)));
-                intent.putExtra("prod_img", String.valueOf(prod_img.get(position)));
 
+                try {
+                    intent.putExtra("prod_img", String.valueOf(prod_img.get(position)));
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                }
                 context.startActivity(intent);
 
 
