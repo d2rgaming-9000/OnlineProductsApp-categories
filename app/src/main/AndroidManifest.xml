@@ -10,6 +10,53 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+<!-- added from abdullahs dev-->
+        <activity
+            android:name=".SamsungTablets"
+            android:exported="false" />
+        <activity
+            android:name=".SamsungWatches"
+            android:exported="false" />
+        <activity
+            android:name=".SamsungTV"
+            android:exported="false" />
+        <activity
+            android:name=".SamsungPhone"
+            android:exported="false" />
+        <activity
+            android:name=".HuaweiTablet"
+            android:exported="false" />
+        <activity
+            android:name=".HuaweiWatch"
+            android:exported="false" />
+        <activity
+            android:name=".HuaweiLaptop"
+            android:exported="false" />
+        <activity
+            android:name=".HuaweiPhone"
+            android:exported="false" />
+        <activity
+            android:name=".AppleWatch"
+            android:exported="false" />
+        <activity
+            android:name=".AppleMacbook"
+            android:exported="false" />
+        <activity
+            android:name=".AppleIphone"
+            android:exported="false" />
+        <activity
+            android:name=".OtherProducts"
+            android:exported="false" />
+        <activity
+            android:name=".SamsungProducts"
+            android:exported="false" />
+        <activity
+            android:name=".HuaweiProducts"
+            android:exported="false" />
+        <activity
+            android:name=".AppleProducts"
+            android:exported="false" />
+        <!-- eof abdullah added manifest-->
 
 	<activity android:name=".Admin"
             android:label="Adminstrative Options"/>

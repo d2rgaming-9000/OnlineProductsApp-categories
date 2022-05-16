@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         //clicks on info page
         Button button2 = (Button) findViewById(R.id.infoBtn);
         button2.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +135,42 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+    //abdullahs code starting (added line from abduv)
+//text view to go to apple product activity
+        TextView btn = findViewById(R.id.AppleProducts);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, AppleProducts.class));
+            }
+        });
+        //text view to go to huawei product activity
+        TextView btn1 = findViewById(R.id.HuwaiiProducts);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, HuaweiProducts.class));
+            }
+        });
+        //text view to go to Samsung product activity
+        TextView btn3 = findViewById(R.id.SamsungProducts);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, SamsungProducts.class));
+            }
+        });
+
+        TextView btn4 = findViewById(R.id.OtherProducts);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, OtherProducts.class));
+            }
+        });
+
         //contact us API
 
 
