@@ -58,17 +58,52 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
-    public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, final int i) {
 
-        holder.product_id_txt.setText(String.valueOf(product_id.get(position)));
-        holder.product_type_txt.setText(String.valueOf(product_type.get(position)));
-        holder.product_specifier_txt.setText(String.valueOf(product_specifier.get(position)));
-        holder.product_range_txt.setText(String.valueOf(product_range.get(position)));
-        holder.product_qty_txt.setText(String.valueOf(prod_qty.get(position)));
+
+        holder.product_id_txt.setText(String.valueOf(product_id.get(i)));
+        holder.product_type_txt.setText(String.valueOf(product_type.get(i)));
+        holder.product_specifier_txt.setText(String.valueOf(product_specifier.get(i)));
+        holder.product_range_txt.setText(String.valueOf(product_range.get(i)));
+        holder.product_qty_txt.setText(String.valueOf(prod_qty.get(i)));
         try {
-            holder.product_img_src.setImageResource((Integer) prod_img.get(position));
+            //holder.product_img_src.setImageResource((Integer) prod_img.get(position));
             // holder.product_img_src.setImageDrawable().getContext.getResources().getDrawable(prod_img.get(position));
             //Picasso.with(context).load(String.valueOf(prod_img.get(position))).into((Target) prod_img);
+
+            //inserting images
+            if (i == 0)
+            {
+                holder.product_img_src.setImageResource(R.drawable.prod);
+            }
+
+            if (i == 1)
+            {
+                holder.product_img_src.setImageResource(R.drawable.prod1);
+            }
+            if (i == 2)
+            {
+                holder.product_img_src.setImageResource(R.drawable.prod2);
+            }
+            if (i == 3)
+            {
+                holder.product_img_src.setImageResource(R.drawable.prod3);
+            }
+
+            if (i == 4)
+            {
+                holder.product_img_src.setImageResource(R.drawable.prod4);
+            }
+            if (i == 5)
+            {
+                holder.product_img_src.setImageResource(R.drawable.prod5);
+            }
+
+            if (i == 6)
+            {
+                holder.product_img_src.setImageResource(R.drawable.prod6);
+            }
+
         } catch (NullPointerException e) {
             e.printStackTrace();
             Toast.makeText(context, "Unable to load images.", Toast.LENGTH_SHORT).show();
@@ -79,14 +114,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, Productdetails.class);
-                intent.putExtra("id", String.valueOf(product_id.get(position)));
-                intent.putExtra("type", String.valueOf(product_type.get(position)));
-                intent.putExtra("specifier", String.valueOf(product_specifier.get(position)));
-                intent.putExtra("range", String.valueOf(product_range.get(position)));
-                intent.putExtra("prod_qty", String.valueOf(prod_qty.get(position)));
+                intent.putExtra("id", String.valueOf(product_id.get(i)));
+                intent.putExtra("type", String.valueOf(product_type.get(i)));
+                intent.putExtra("specifier", String.valueOf(product_specifier.get(i)));
+                intent.putExtra("range", String.valueOf(product_range.get(i)));
+                intent.putExtra("prod_qty", String.valueOf(prod_qty.get(i)));
 
                 try {
-                    intent.putExtra("prod_img", String.valueOf(prod_img.get(position)));
+                    intent.putExtra("prod_img", String.valueOf(prod_img.get(i)));
                 } catch (NullPointerException e) {
                     e.printStackTrace();
                 }

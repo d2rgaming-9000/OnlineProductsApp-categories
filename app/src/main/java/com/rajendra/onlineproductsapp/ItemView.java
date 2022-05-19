@@ -3,23 +3,19 @@ package com.rajendra.onlineproductsapp;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.Constraints;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.rajendra.onlineproductsapp.adapter.CustomAdapter;
@@ -34,10 +30,16 @@ public class ItemView extends AppCompatActivity {
     ProductAdapter productAdapter;
     ImageView empty_imageview;
     TextView no_data;
+    ImageView visible_img;
 
     DBHelper myDB;
 
-    ArrayList<String> product_id, product_type, product_specifier, product_ranges, prod_qty, prod_img;
+    ArrayList<String> product_id;
+    ArrayList<String> product_type;
+    ArrayList<String> product_specifier;
+    ArrayList<String> product_ranges;
+    ArrayList<String> prod_qty;
+    ArrayList<Integer> prod_img;
     CustomAdapter customAdapter;
 
     @Override
@@ -49,7 +51,8 @@ public class ItemView extends AppCompatActivity {
         add_button = findViewById(R.id.add_button);
         empty_imageview = findViewById(R.id.empty_imageview);
         no_data = findViewById(R.id.no_data);
-        
+        visible_img = findViewById(R.id.visible_img);
+
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +66,7 @@ public class ItemView extends AppCompatActivity {
         product_specifier = new ArrayList<>();
         product_ranges = new ArrayList<>();
         prod_qty = new ArrayList<>();
-        prod_img = new ArrayList<>();
+        prod_img = new ArrayList<Integer>();
 
         storeDataInArrays();
 
@@ -109,8 +112,18 @@ public class ItemView extends AppCompatActivity {
                 product_specifier.add(cursor.getString(2));
                 product_ranges.add(cursor.getString(3));
                 prod_qty.add(cursor.getString(4));
-                prod_img.add(cursor.getString(5));
+                //add images
+                try {
+                    prod_img.add((R.drawable.prod1), 0);
+                    prod_img.add((R.drawable.prod2), 0);
+                    prod_img.add((R.drawable.prod3), 0);
+                    prod_img.add((R.drawable.prod4), 0);
+                    prod_img.add((R.drawable.prod5), 0);
+                    prod_img.add((R.drawable.prod6), 0);
 
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);
