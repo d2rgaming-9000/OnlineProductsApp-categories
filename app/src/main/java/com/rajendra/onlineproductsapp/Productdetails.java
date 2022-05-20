@@ -63,7 +63,7 @@ public class Productdetails extends AppCompatActivity {
         product_ranges = new ArrayList<>();
         prod_img = new ArrayList<Integer>();
 
-        storeDataInArrays();
+        //storeDataInArrays();
 
         customAdapter = new CustomAdapter(Productdetails.this,this,
                 product_id, product_type,
@@ -134,7 +134,7 @@ public class Productdetails extends AppCompatActivity {
                 product_type.add(cursor.getString(1));
                 product_specifier.add(cursor.getString(2));
                 product_ranges.add(cursor.getString(3));
-                prod_qty.add(cursor.getString(4));
+//                prod_qty.add(cursor.getString(4));
             }
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);
