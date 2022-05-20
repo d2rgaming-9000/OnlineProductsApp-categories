@@ -15,8 +15,8 @@
         android:inputType="textMultiLine"
         android:lineSpacingExtra="2dp"
         android:text="
-        Welcome to Smart-Watch Authority application. Users will be able to purchase electronic smart watches for mobile devices and mobile supply chains with this application.
- Smart-Watch Authority is a cutting edge technology that reflects a creative approach to GUI design and manufacturing, as we dedicate ourselves to providing the best and most unique technology when purchasing merchandise.
+        Welcome to Android Authority app. Users will be able to purchase electronic smart watches and smart phones for mobile devices and mobile supply chains with this application.
+ Android Authority app is a cutting edge technology that reflects a creative approach to GUI design, as we dedicate ourselves to providing the best and most unique technology when purchasing merchandise.
 "
         android:textAlignment="center"
         android:textColor="@android:color/background_dark"
@@ -39,7 +39,7 @@
         android:ems="10"
         android:freezesText="false"
         android:inputType="textMultiLine"
-        android:text="Smart-Watch Authority."
+        android:text="Android Authority."
         android:textAlignment="center"
         android:textColor="#323554"
         android:textSize="24sp"

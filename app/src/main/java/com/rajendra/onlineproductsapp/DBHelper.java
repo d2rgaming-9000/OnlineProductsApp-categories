@@ -78,9 +78,16 @@ public class DBHelper extends SQLiteOpenHelper{
         DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (3, 'Hauwei Watch', 'HWUI#2393', '$699', 4)");
         DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (4, 'iPhone 14', 'APPL#3093', '$499', 5)");
         DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (1, 'Apple Watch', 'APPL#2193', '$399', 6)");
-        DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (6, 'Hauwei Pro', 'HWUI#2690', '$699', 4)");
+        DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (6, 'Hauwei P20', 'HWUI#2690', '$699', 4)");
         DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (7, 'Galaxy Watch Pro', 'GLX#2793', '$699', 3)");
-
+        DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (9, 'Iphone Max', 'ALX#1121', '$1000', 2)");
+        DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (8, 'Iphone 13 ', 'RLX#1121', '$300', 2)");
+        DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (10,'Apple watch 6', 'GUI#5678', '$399', 6)");
+        DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (11,'Deal Laptop' , 'OMX#5678', '$650', 4)");
+        DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (12, 'Gaming laptop', 'KLX#5678', '$150', 3)");
+        DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (13,'Huawei 07 ' , 'OPX#5678', '$443', 4)");
+        DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (14, 'acer laptop', 'NHX#5678', '$699', 9)");
+        DB.execSQL("INSERT INTO " + TABLE_NAME1 + "(product_id, product_type, product_specifier, product_range, prod_qty) VALUES (15,'Hauwei laptop' , 'MHX#5678', '$999', 7)");
 
         //for users and admins
         String usrquery =
@@ -93,7 +100,7 @@ public class DBHelper extends SQLiteOpenHelper{
         //isnert users and admin
         DB.execSQL("INSERT INTO " + TABLE_NAME2 + "(user_id, first_name, last_name, email, pass, admin) VALUES (1, 'James', 'Conney', 'JamesConney@admin', 123, 'ADMIN')");
         DB.execSQL("INSERT INTO " + TABLE_NAME2 + "(user_id, first_name, last_name, email, pass) VALUES (41739, 'Salah', 'Saleh', '41739@aum.com', 000)");
-        DB.execSQL("INSERT INTO " + TABLE_NAME2 + "(user_id, first_name, last_name, email, pass) VALUES (2000, '12', '12', 'Tester', 12)");
+        DB.execSQL("INSERT INTO " + TABLE_NAME2 + "(user_id, first_name, last_name, email, pass) VALUES (2000, 'Tester', '12', 'Tester', 12)");
 
     }
 

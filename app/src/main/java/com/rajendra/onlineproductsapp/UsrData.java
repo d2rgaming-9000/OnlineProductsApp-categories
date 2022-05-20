@@ -1,4 +1,5 @@
 package com.rajendra.onlineproductsapp;
+
 import static com.rajendra.onlineproductsapp.DBHelper.TABLE_NAME2;
 
 import android.content.ContentValues;

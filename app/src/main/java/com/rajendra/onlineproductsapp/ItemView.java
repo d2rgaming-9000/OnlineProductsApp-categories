@@ -112,19 +112,7 @@ public class ItemView extends AppCompatActivity {
                 product_specifier.add(cursor.getString(2));
                 product_ranges.add(cursor.getString(3));
                 prod_qty.add(cursor.getString(4));
-                //add images
-                try {
-                    prod_img.add((R.drawable.prod1), 0);
-                    prod_img.add((R.drawable.prod2), 0);
-                    prod_img.add((R.drawable.prod3), 0);
-                    prod_img.add((R.drawable.prod4), 0);
-                    prod_img.add((R.drawable.prod5), 0);
-                    prod_img.add((R.drawable.prod6), 0);
-
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
-            }
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);
         }

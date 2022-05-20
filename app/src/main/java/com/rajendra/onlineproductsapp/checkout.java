@@ -65,11 +65,10 @@ public class checkout extends AppCompatActivity{
                 //updates remainder of qauntity in DB of item
                 try {
                     //specifier = "JPN#34536";
-                    specifier = "JPN#34536";
-                    String selectQuery = "SELECT product_specifier, prod_qty WHERE product_specifier = " + specifier + ", FROM " + TABLE_NAME1 ;
+                    //specifier = "JPN#34536";
+                    String selectQuery = "SELECT product_specifier, prod_qty WHERE product_specifier = " + specifier + ", FROM " + TABLE_NAME1;
                     Cursor cursor = db.rawQuery(selectQuery, null);
 
-                    qty = qty;
                     qty = qty - Cart;
                     Boolean checkPurch = myDB.updatePurch(specifier, qty);
                     

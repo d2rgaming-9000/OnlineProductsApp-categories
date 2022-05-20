@@ -31,6 +31,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/con_layout"
         android:layout_width="0dp"
         android:layout_height="450dp"
         android:background="@drawable/detail_page_bg"
@@ -70,21 +71,21 @@
             app:layout_constraintTop_toTopOf="@+id/textView7" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/product_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:fontFamily="@font/rubik_bold"
-            android:text="Japanese Limited Smart Watch (LMTD EDITION)"
+            android:text="Lorem ipsum dolor sit amet"
             android:textColor="@android:color/background_dark"
             android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/textView12"
+            app:layout_constraintEnd_toStartOf="@+id/price"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
@@ -92,29 +93,29 @@
             android:text="$ 267"
             android:textColor="#42995C"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView11"
+            app:layout_constraintBottom_toBottomOf="@+id/product_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView11" />
+            app:layout_constraintTop_toTopOf="@+id/product_name" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/prod_descrip"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/rubik"
             android:lineSpacingExtra="2dp"
-            android:text="The limited edition special collab with companty of japan."
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex."
             android:textColor="@android:color/background_dark"
-            app:layout_constraintEnd_toEndOf="@+id/textView12"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintEnd_toEndOf="@+id/price"
+            app:layout_constraintStart_toStartOf="@+id/product_name"
+            app:layout_constraintTop_toBottomOf="@+id/product_name" />
 
         <ImageView
             android:id="@+id/remove"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintStart_toStartOf="@+id/prod_descrip"
             app:layout_constraintTop_toTopOf="@+id/addCart"
             app:srcCompat="@drawable/ic_minus" />
 
@@ -158,9 +159,9 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="256dp"
-        android:layout_height="447dp"
+        android:id="@+id/prod_img_src"
+        android:layout_width="254dp"
+        android:layout_height="410dp"
         android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
