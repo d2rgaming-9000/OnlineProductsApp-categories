@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     Button Cart;
     Intent putToCart;
     String itemcnt, name;
+    int count = 0;
 
     ArrayList<String> product_id, product_type, product_specifier, product_ranges, prod_qty, prod_img;
     CustomAdapter customAdapter;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         product_specifier = new ArrayList<>();
         product_ranges = new ArrayList<>();
         prod_qty = new ArrayList<>();
-//        prod_img = new ArrayList<>();
+        prod_img = new ArrayList<>();
 
         //
         storeDataInArrays();
@@ -89,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
         if (itemcnt == null) {
             Cart.setText("Your cart is empty.");
         } else if (itemcnt != null) {
-            Cart.setText("You have " + itemcnt + " items.");
+            count += Integer.valueOf(itemcnt);
+            Cart.setText("You have " + count + " items.");
         } else {
             Cart.setText("View Cart");
         }
@@ -252,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
                 product_specifier.add(cursor.getString(2));
                 product_ranges.add(cursor.getString(3));
                 prod_qty.add(cursor.getString(4));
-                // prod_img.add(cursor.getString(5));
+                prod_img.add(cursor.getString(5));
 
             }
             empty_imageview.setVisibility(View.GONE);

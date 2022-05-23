@@ -18,13 +18,13 @@ import java.util.ArrayList;
 
 public class Productdetails extends AppCompatActivity {
 
-    int count = 0;
+    int count = 0, instock;
     TextView change;;
-    ImageView addition, remove;
+    ImageView addition, remove, img_string;
     Button addcart;
     Intent openSetPin;
 
-    String img_string, range_string, type_string, qty_string, id_string, specifier_string;
+    String range_string, type_string, qty_string, id_string, specifier_string;
     TextView range, type, qty;
     
     ImageView empty_imageview, img;
@@ -48,7 +48,7 @@ public class Productdetails extends AppCompatActivity {
         img = findViewById(R.id.img_src_details);
         range = findViewById(R.id.price);
         type = findViewById(R.id.product_name_details);
-        qty = findViewById(R.id.qtychange);
+        qty = findViewById(R.id.available);
 
         //get intent of the recycler openned *clicked*
         Intent intent_CusAdapter = getIntent();
@@ -66,14 +66,16 @@ public class Productdetails extends AppCompatActivity {
         qty_string = intent_CusAdapter.getStringExtra("prod_qty");
         type_string = intent_CusAdapter.getStringExtra("type");
         range_string = intent_CusAdapter.getStringExtra("range");
-        img_string = intent_CusAdapter.getStringExtra("prod_img");
+        img_string = intent_CusAdapter.getParcelableExtra("prod_img");
 
         //set images and texts from data
-      //  img.setImageResource(R.drawable.img_string);
         try {
             type.setText("" + type_string);
             range.setText("" + range_string);
-            qty.setText(""+qty_string);
+            qty.setText("In stock: "+qty_string);
+
+            img.setImageDrawable(img_string.getDrawable());
+
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this, "Could not load product details.", Toast.LENGTH_SHORT).show();
@@ -88,19 +90,23 @@ public class Productdetails extends AppCompatActivity {
         //Shown description is generic
 
         //when user adds or removes item change number of counts shown
+        instock = Integer.valueOf(qty_string);
         addition.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                count = count +1;
-                    change.setText(""+count);
+                if (count < instock ) {
+                    count = count + 1;
+                    change.setText("" + count);
+                }
+                else
+                    return;
             } });
-
-        //..
 
         //REMOVES
         remove.setOnClickListener(new View.OnClickListener() {
             public void onClick (View view) {
-                if (count <= 0 ) count = 0;
+                if (count <= 0 )
+                    return;
 
                 else
                 count = count - 1;
@@ -111,19 +117,24 @@ public class Productdetails extends AppCompatActivity {
         //When adds to cart
         addcart.setOnClickListener(new View.OnClickListener() {
             public void onClick (View view) {
-                if (count <= 0 )
-                    return;
+            instock += count - instock;
+
+
+            if (count <= 0 ){
+                    return;}
 
                 //the else statement adds the count of products
                 //to the cart, that will ONLY update the values in the DB
                 //when the user finalises purchase at the purchase page
-            else
-                openSetPin = new Intent(Productdetails.this, checkout.class);
-                openSetPin = new Intent(Productdetails.this, MainActivity.class);
+            else{
+                    openSetPin = new Intent(Productdetails.this, MainActivity.class);
 
-                String countasstring = String.valueOf(count);
-                openSetPin.putExtra("items", countasstring);
-                startActivity(openSetPin);
+                    String countasstring = String.valueOf(count);
+                    openSetPin.putExtra("items", countasstring);
+                    openSetPin.putExtra("items_instock", instock);
+
+                    startActivity(openSetPin);
+                }
             }
         });
     }

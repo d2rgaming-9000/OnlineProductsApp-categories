@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private Activity activity;
     private ArrayList product_id, product_type, product_specifier, product_range, prod_qty;
     private ArrayList _img_src;
+    ImageView img1;
 
     public CustomAdapter(Activity activity, Context context, ArrayList product_id,
                          ArrayList product_type, ArrayList product_specifier,
@@ -74,6 +76,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             if (i == 1)
             {
                 holder.product_img_src.setImageResource(R.drawable.prod1);
+                img1.getDrawable();
             }
             if (i == 2)
             {
@@ -136,6 +139,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             if (i == 16)
             {
                 holder.product_img_src.setImageResource(R.drawable.prod16);
+                img1.getDrawable();
             }
 
         //catch if no images are found, app does not crash
@@ -156,7 +160,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 setValue.putExtra("range", String.valueOf(product_range.get(i)));
                 setValue.putExtra("prod_qty", String.valueOf(prod_qty.get(i)));
                 try {
-                  //  setValue.putExtra("prod_img",  _img_src..(i));
+                    img1.getDrawable();
+                    setValue.putExtra("prod_img", (Parcelable) img1.getDrawable());
                 } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
