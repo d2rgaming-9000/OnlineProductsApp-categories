@@ -3,8 +3,6 @@ package com.rajendra.onlineproductsapp.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,21 +21,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rajendra.onlineproductsapp.Productdetails;
 import com.rajendra.onlineproductsapp.R;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
+public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
+    Intent setValue;
     private Context context;
     private Activity activity;
     private ArrayList product_id, product_type, product_specifier, product_range, prod_qty;
-    private ArrayList prod_img;
+    private ArrayList _img_src;
 
     public CustomAdapter(Activity activity, Context context, ArrayList product_id,
                          ArrayList product_type, ArrayList product_specifier,
-                         ArrayList product_range, ArrayList prod_qty, ArrayList prod_img){
+                         ArrayList product_range, ArrayList prod_qty, ArrayList _img_src){
         this.activity = activity;
         this.context = context;
         this.product_id = product_id;
@@ -45,7 +42,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.product_specifier = product_specifier;
         this.product_range = product_range;
         this.prod_qty = prod_qty;
-        this.prod_img = prod_img;
+        this._img_src = _img_src;
     }
 
     @NonNull
@@ -59,8 +56,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int i) {
-
-
         holder.product_id_txt.setText(String.valueOf(product_id.get(i)));
         holder.product_type_txt.setText(String.valueOf(product_type.get(i)));
         holder.product_specifier_txt.setText(String.valueOf(product_specifier.get(i)));
@@ -148,27 +143,25 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             e.printStackTrace();
             Toast.makeText(context, "Unable to load images.", Toast.LENGTH_SHORT).show();
         }
-        //Recyclerview onClickListener
 
+        //Recyclerview onClickListenerة
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, Productdetails.class);
-                intent.putExtra("id", String.valueOf(product_id.get(i)));
-                intent.putExtra("type", String.valueOf(product_type.get(i)));
-                intent.putExtra("specifier", String.valueOf(product_specifier.get(i)));
-                intent.putExtra("range", String.valueOf(product_range.get(i)));
-                intent.putExtra("prod_qty", String.valueOf(prod_qty.get(i)));
+                Intent setValue = new Intent(activity, Productdetails.class);
 
+                setValue.putExtra("id", String.valueOf(product_id.get(i)));
+                setValue.putExtra("type", String.valueOf(product_type.get(i)));
+                setValue.putExtra("specifier", String.valueOf(product_specifier.get(i)));
+                setValue.putExtra("range", String.valueOf(product_range.get(i)));
+                setValue.putExtra("prod_qty", String.valueOf(prod_qty.get(i)));
                 try {
-                    intent.putExtra("prod_img", String.valueOf(prod_img.get(i)));
+                  //  setValue.putExtra("prod_img",  _img_src..(i));
                 } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
-                context.startActivity(intent);
 
-
-               // activity.startActivityForResult(intent, 1);
+                activity.startActivityForResult(setValue, 1);
             }
         });
 

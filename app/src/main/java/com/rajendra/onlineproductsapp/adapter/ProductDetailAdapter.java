@@ -3,16 +3,11 @@ package com.rajendra.onlineproductsapp.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Build;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,13 +15,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.widget.Constraints;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rajendra.onlineproductsapp.Productdetails;
 import com.rajendra.onlineproductsapp.R;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 
@@ -136,9 +128,9 @@ public class ProductDetailAdapter {
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            product_type_txt = itemView.findViewById(R.id.product_name);
+            product_type_txt = itemView.findViewById(R.id.product_name_details);
             product_range_txt = itemView.findViewById(R.id.price);
-            product_img_src = itemView.findViewById(R.id.prod_img_src);
+            product_img_src = itemView.findViewById(R.id.img_src_details);
 
 
             mainLayout = itemView.findViewById(R.id.mainLayout);

@@ -49,7 +49,7 @@
             android:background="@drawable/ic_cat_bg"
             android:fontFamily="@font/rubik_medium"
             android:gravity="center"
-            android:text="Body"
+            android:text="Digital"
             android:textColor="@android:color/background_dark"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,7 @@
             app:layout_constraintTop_toTopOf="@+id/textView7" />
 
         <TextView
-            android:id="@+id/product_name"
+            android:id="@+id/product_name_details"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -93,9 +93,9 @@
             android:text="$ 267"
             android:textColor="#42995C"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/product_name"
+            app:layout_constraintBottom_toBottomOf="@+id/product_name_details"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/product_name" />
+            app:layout_constraintTop_toTopOf="@+id/product_name_details" />
 
         <TextView
             android:id="@+id/prod_descrip"
@@ -107,8 +107,8 @@
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex."
             android:textColor="@android:color/background_dark"
             app:layout_constraintEnd_toEndOf="@+id/price"
-            app:layout_constraintStart_toStartOf="@+id/product_name"
-            app:layout_constraintTop_toBottomOf="@+id/product_name" />
+            app:layout_constraintStart_toStartOf="@+id/product_name_details"
+            app:layout_constraintTop_toBottomOf="@+id/product_name_details" />
 
         <ImageView
             android:id="@+id/remove"
@@ -159,7 +159,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/prod_img_src"
+        android:id="@+id/img_src_details"
         android:layout_width="254dp"
         android:layout_height="410dp"
         android:layout_marginTop="16dp"
