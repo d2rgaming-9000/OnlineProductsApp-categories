@@ -40,8 +40,9 @@ public class MainActivity extends AppCompatActivity {
     TextView username;
     Button Cart;
     Intent putToCart;
-    String itemcnt, name;
-    int count = 0;
+    int itemcnt;
+    String name;
+    int count, var;
 
     ArrayList<String> product_id, product_type, product_specifier, product_ranges, prod_qty, prod_img;
     CustomAdapter customAdapter;
@@ -71,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         prod_qty = new ArrayList<>();
         prod_img = new ArrayList<>();
 
+        //when activity start store item in cart
+
+
         //
         storeDataInArrays();
 
@@ -84,23 +88,26 @@ public class MainActivity extends AppCompatActivity {
         name = intent1.getStringExtra("name_key");
         username = findViewById(R.id.username);
 
-        itemcnt = intent2.getStringExtra("items");
+        itemcnt = intent2.getIntExtra("items", var);
+        count += itemcnt + var;
+        //Toast.makeText(MainActivity.this, ""  + count, Toast.LENGTH_SHORT).show();
+
+
         Cart = findViewById(R.id.CartBtn);
 
-        if (itemcnt == null) {
+        if (itemcnt == 0) {
             Cart.setText("Your cart is empty.");
-        } else if (itemcnt != null) {
-            count += Integer.valueOf(itemcnt);
-            Cart.setText("You have " + count + " items.");
+        } else if (itemcnt != 0) {
+            Cart.setText("You have " + itemcnt + " items.");
+            //store in cart to pass to prodect detail activity
+            Intent setValue = new Intent(MainActivity.this, CustomAdapter.class);
+            setValue.putExtra("items_incart", itemcnt);
         } else {
             Cart.setText("View Cart");
         }
 
         //when user logs in show name of user in main menu
-        if (name != null)
             username.setText("Hello, " + name + " !");
-        else
-            username.setText("Select more items or checkout.              ");
 
         TextView nameTXT = findViewById(R.id.nameTextView);
 
@@ -126,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //clicks on view cart
-        if ((itemcnt != null)) {
+        if ((itemcnt != 0)) {
             try {
                 Button button3 = (Button) findViewById(R.id.CartBtn);
                 button3.setOnClickListener(new View.OnClickListener() {

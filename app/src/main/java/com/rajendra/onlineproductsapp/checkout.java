@@ -22,7 +22,9 @@ public class checkout extends AppCompatActivity{
 
     SQLiteDatabase db;
     Integer qty, Cart = 0;
-    String specifier, count, stringCnt;
+    String specifier;
+    int count, var;;
+    String stringCnt;
     DBHelper myDB = new DBHelper(checkout.this);
     Button Quantity;
     RecyclerView ItemRecycler;
@@ -36,10 +38,11 @@ public class checkout extends AppCompatActivity{
             setContentView(R.layout.checkout);
 
             Intent intent = getIntent();
-            count = intent.getStringExtra("items");
-            stringCnt = count;
+
+            count = intent.getIntExtra("items", var);
+            
             try {
-                Cart = Cart + Integer.valueOf(stringCnt);
+                Cart += Integer.valueOf(count);
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }

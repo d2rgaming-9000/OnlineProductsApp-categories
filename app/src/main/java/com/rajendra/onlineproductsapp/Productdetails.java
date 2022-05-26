@@ -18,13 +18,20 @@ import java.util.ArrayList;
 
 public class Productdetails extends AppCompatActivity {
 
-    int count = 0, instock;
+    int count = 0, instock, var;
     TextView change;;
-    ImageView addition, remove, img_string;
+    ImageView addition, remove;
     Button addcart;
     Intent openSetPin;
+    int in_cart;
+    Intent intent_Cart = getIntent();
 
-    String range_string, type_string, qty_string, id_string, specifier_string;
+    String range_string;
+    String type_string;
+    String qty_string;
+    String id_string;
+    String specifier_string;
+    int img_string, img_as_int;
     TextView range, type, qty;
     
     ImageView empty_imageview, img;
@@ -52,34 +59,90 @@ public class Productdetails extends AppCompatActivity {
 
         //get intent of the recycler openned *clicked*
         Intent intent_CusAdapter = getIntent();
-        /*
-        intent.putExtra("id", String.valueOf(product_id.get(i)));
-                intent.putExtra("type", String.valueOf(product_type.get(i)));
-                intent.putExtra("specifier", String.valueOf(product_specifier.get(i)));
-                intent.putExtra("range", String.valueOf(product_range.get(i)));
-                intent.putExtra("prod_qty", String.valueOf(prod_qty.get(i)));
-                intent.putExtra("prod_img", String.valueOf(prod_img.get(i)));
-         */
+
         //get data from previous intent class
         id_string = intent_CusAdapter.getStringExtra("product_id");
         specifier_string = intent_CusAdapter.getStringExtra("product_specifier");
         qty_string = intent_CusAdapter.getStringExtra("prod_qty");
         type_string = intent_CusAdapter.getStringExtra("type");
         range_string = intent_CusAdapter.getStringExtra("range");
-        img_string = intent_CusAdapter.getParcelableExtra("prod_img");
+        img_string = intent_CusAdapter.getIntExtra("prod_img", img_as_int);
 
-        //set images and texts from data
+        img_as_int = Integer.valueOf(img_string);
+        //set images and texts from data, but check for data avlbility and not crash app if no data
         try {
             type.setText("" + type_string);
             range.setText("" + range_string);
             qty.setText("In stock: "+qty_string);
 
-            img.setImageDrawable(img_string.getDrawable());
+            //check for image availablity and not crash app
+            try {
+                if (img_as_int == 0) {
+                    img.setImageResource(R.drawable.prod);
+                }
+                if (img_as_int == 1) {
+                    img.setImageResource(R.drawable.prod1);
+                }
+                if (img_as_int == 2) {
+                    img.setImageResource(R.drawable.prod2);
+                }
+                if (img_as_int == 3) {
+                    img.setImageResource(R.drawable.prod3);
+                }
+                if (img_as_int == 4) {
+                    img.setImageResource(R.drawable.prod4);
+                }
+                if (img_as_int == 5) {
+                    img.setImageResource(R.drawable.prod5);
+                }
+                if (img_as_int == 6) {
+                    img.setImageResource(R.drawable.prod6);
+                }
+                if (img_as_int == 7) {
+                    img.setImageResource(R.drawable.prod7);
+                }
+                if (img_as_int == 8) {
+                    img.setImageResource(R.drawable.prod8);
+                }
+                if (img_as_int == 9) {
+                    img.setImageResource(R.drawable.prod9);
+                }
+                if (img_as_int == 10) {
+                    img.setImageResource(R.drawable.prod10);
+                }
+                if (img_as_int == 11) {
+                    img.setImageResource(R.drawable.prod11);
+                }
+                if (img_as_int == 12) {
+                    img.setImageResource(R.drawable.prod12);
+                }
+                if (img_as_int == 13) {
+                    img.setImageResource(R.drawable.prod13);
+                }
+                if (img_as_int == 14) {
+                    img.setImageResource(R.drawable.prod14);
+                }
+                if (img_as_int == 15) {
+                    img.setImageResource(R.drawable.prod15);
+                }
+                if (img_as_int == 16) {
+                    img.setImageResource(R.drawable.prod16);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this, "Could not load product details.", Toast.LENGTH_SHORT).show();
         }
+        try {
+            in_cart = intent_Cart.getIntExtra("items_incart", var);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //Toast.makeText(Productdetails.this, "in cart: " + in_cart, Toast.LENGTH_SHORT).show();
+
 
 
         //declare buttons
@@ -117,21 +180,34 @@ public class Productdetails extends AppCompatActivity {
         //When adds to cart
         addcart.setOnClickListener(new View.OnClickListener() {
             public void onClick (View view) {
-            instock += count - instock;
 
+
+                //stored items in cart (from main) passed to .this class
+                if(in_cart != 0) {
+                    count += in_cart;
+                }
+                Toast.makeText(Productdetails.this, "" + in_cart + count, Toast.LENGTH_SHORT).show();
+
+
+                if (in_cart != 0)
+                {
+                    Toast.makeText(Productdetails.this, "" + count, Toast.LENGTH_SHORT).show();
+                }
+
+                instock += count - instock;
 
             if (count <= 0 ){
                     return;}
-
                 //the else statement adds the count of products
                 //to the cart, that will ONLY update the values in the DB
                 //when the user finalises purchase at the purchase page
             else{
                     openSetPin = new Intent(Productdetails.this, MainActivity.class);
 
-                    String countasstring = String.valueOf(count);
-                    openSetPin.putExtra("items", countasstring);
-                    openSetPin.putExtra("items_instock", instock);
+                    String countasstring = String.valueOf(count) + in_cart;
+
+                        openSetPin.putExtra("items", count);
+                        openSetPin.putExtra("items_instock", instock);
 
                     startActivity(openSetPin);
                 }
